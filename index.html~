@@ -11,12 +11,10 @@
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-<div id="container">
     <h1>mod-SWFupload</h1>
     <div id="uploadButton"></div>
     <div id="status"></div>
 <p><a href="#" id="showlink" onclick="showlog()">показать лог</a></p>
     <div id="images"></div>
-</div>
 </body>
 </html>

@@ -34,7 +34,7 @@ var percent = 0;
         {
             upload_url : "upload.php",
             flash_url : "swfupload.swf",
-	button_window_mode : "transparent",
+	button_window_mode : "opaque",
             button_placeholder_id : "uploadButton",
             
             file_size_limit : "10 MB",

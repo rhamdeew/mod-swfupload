@@ -24,7 +24,6 @@
 }
 input {
 	width:700px;
-	margin:20px 0 30px 0;
 }
 h1 {
 	color:#777777;
