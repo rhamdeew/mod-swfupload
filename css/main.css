@@ -1,0 +1,16 @@
+#status {
+	color:#aaa;
+	font-size:10px;
+	max-height:250px;
+	width:500px;
+	overflow:auto;
+	background:#f5f0f5;
+	padding:10px;
+	margin:2px;
+	display:none;
+}
+#showlink {
+	color:#FF7766;
+	font-size:13px;
+	display:none;
+}
