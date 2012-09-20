@@ -4,7 +4,7 @@ $dir = ''; //базовый путь к скрипту
 $mwidth = 500;
 
 $allowedExt = array('jpg', 'jpeg', 'png', 'gif');
-$maxFileSize = 2 * 1024 * 1024; //2 MB
+$maxFileSize = 10 * 1024 * 1024; //10 MB
 
 //если получен файл
 if (isset($_FILES)) {
