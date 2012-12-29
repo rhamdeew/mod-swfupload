@@ -1,3 +1,6 @@
+a {
+	color:#aaa;
+}
 #container {
 	width:800px;
 	margin:auto;
@@ -22,10 +25,30 @@
 	font-size:13px;
 	display:none;
 }
+#image_settings {
+    display: none;
+    width:200px;
+    margin:auto;
+    text-align: center;
+}
+#gallery-name {
+	width:200px;
+}
+#sizer {
+    width:50px;
+    margin:0;
+}
+#im_settings {
+    color:#aaaaaa;
+}
 input {
 	width:700px;
 	margin:20px 0 30px 0;
 }
 h1 {
 	color:#777777;
+}
+
+.links p {
+	color:#aaa;
 }

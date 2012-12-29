@@ -3,7 +3,7 @@
  *
  * mmSWFUpload 1.0: Flash upload dialog - http://profandesign.se/swfupload/,  http://www.vinterwebb.se/
  *
- * SWFUpload is (c) 2006-2007 Lars Huring, Olov Nilzén and Mammon Media and is released under the MIT License:
+ * SWFUpload is (c) 2006-2007 Lars Huring, Olov Nilzï¿½n and Mammon Media and is released under the MIT License:
  * http://www.opensource.org/licenses/mit-license.php
  *
  * SWFUpload 2 is (c) 2007-2008 Jake Roberts and is released under the MIT License:
@@ -140,6 +140,8 @@ SWFUpload.prototype.initSettings = function () {
 	this.ensureDefault("file_upload_limit", 0);
 	this.ensureDefault("file_queue_limit", 0);
 
+    this.ensureDefault("size", 500);
+
 	// Flash Settings
 	this.ensureDefault("flash_url", "swfupload.swf");
 	this.ensureDefault("prevent_swf_caching", true);
@@ -260,6 +262,7 @@ SWFUpload.prototype.getFlashVars = function () {
 			"&amp;fileSizeLimit=", encodeURIComponent(this.settings.file_size_limit),
 			"&amp;fileUploadLimit=", encodeURIComponent(this.settings.file_upload_limit),
 			"&amp;fileQueueLimit=", encodeURIComponent(this.settings.file_queue_limit),
+            "&amp;size=", encodeURIComponent(this.settings.size),
 			"&amp;debugEnabled=", encodeURIComponent(this.settings.debug_enabled),
 			"&amp;buttonImageURL=", encodeURIComponent(this.settings.button_image_url),
 			"&amp;buttonWidth=", encodeURIComponent(this.settings.button_width),

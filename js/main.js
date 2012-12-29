@@ -1,8 +1,44 @@
 $(document).ready(function() {
 var percent = 0;
+var size = 500;
+var inid = 0;
+var galleryname = $('#gallery-name').val();
     
     function uploadSuccess(file, serverData) {
-        $('#images').append($(serverData));
+        //$('#images').append($(serverData));
+        var url = '';
+        var url2 = '';
+        var t = '';
+        var t2 = '';
+        if(serverData) {
+            var data = serverData.split('|');
+            if(data[0]) {
+                if(!data[1]) {
+                    url = '<img src="'+data[0]+'">';
+                    t2 = $('#links-area-lightbox').val();
+                    t2 = t2 + url + '\n'; 
+                    $('#links-area-lightbox').val(t2).html();
+                }
+                else {
+                    url = '<a href="'+data[0]+'"><img src="'+data[1]+'"></a>';
+                    url2 = '<a href="'+data[0]+'" rel="lightbox['+galleryname+']"><img src="'+data[1]+'"></a>';
+
+                    t2 = $('#links-area-lightbox').val();
+                    t2 = t2 + url2 + '\n'; 
+                    $('#links-area-lightbox').val(t2).html();
+                }
+
+                t = $('#links-area').val();
+                t = t + url + '\n'; 
+                $('#links-area').val(t).html();
+
+                $('#images').append(url);
+                $('#images').append('<br/><input type="text" id="upload'+inid+'"><br/>');
+                $('#upload'+inid).val(url).html();
+                inid++;
+            }
+            else $('#images').append('Ошибка загрузки '+file.name);
+        }
     }
     
     function uploadComplete(file) {
@@ -27,6 +63,7 @@ var percent = 0;
 
     function fileDialogComplete(numFilesSelected, numFilesQueued) {
         $('#status').html($('<p>Выбрано ' + numFilesSelected + ' файл(ов), начинаем загрузку</p>'));
+        size = $('#sizer').val();
         this.startUpload(); 
     }
 
@@ -34,8 +71,10 @@ var percent = 0;
         {
             upload_url : "upload.php",
             flash_url : "swfupload.swf",
-	button_window_mode : "transparent",
+	        button_window_mode : "transparent",
             button_placeholder_id : "uploadButton",
+
+            size : size,
             
             file_size_limit : "10 MB",
             file_types : "*.jpg; *.png; *.jpeg; *.gif",
@@ -65,4 +104,10 @@ function showlog() {
 	$('#status').toggle();
 	if($('#showlink').text()=="показать лог") $('#showlink').text("скрыть лог");
 	else $('#showlink').text("показать лог");
-} 
+}
+
+function showsettings() {
+    $('#image_settings').toggle();
+    if($('#im_settings').text()=="Изменить настройки") $('#showlink').text("Скрыть");
+    else $('#im_settings').text("Изменить настройки");
+}
