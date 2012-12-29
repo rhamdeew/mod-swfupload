@@ -1,10 +1,27 @@
 <?php
+/*
+* Возвращает путь для сохранения файла
+*/
+function getpath($uploadDir = "img/") {
+
+	$path = $uploadDir.date("Y")."/".date("m")."/";
+	if(!file_exists($path))	mkdir($path,0755,TRUE);
+	return $path;
+
+}
+
+//Собственно старт
+
 $uploadDir = 'img/'; //папка для хранения файлов
+$miniuploadDir = 'img/mini/'; //папка для хранения файлов
 $dir = ''; //базовый путь к скрипту
 $mwidth = 500;
 
 $allowedExt = array('jpg', 'jpeg', 'png', 'gif');
 $maxFileSize = 10 * 1024 * 1024; //10 MB
+
+$uploadDir = getpath($uploadDir);
+$miniuploadDir = getpath($miniuploadDir);
 
 //если получен файл
 if (isset($_FILES)) {
@@ -64,25 +81,11 @@ if (isset($_FILES)) {
 			die("IO error");
 		}
 
-		// $data = array(
-		// 	"success" => "true",
-		// 	"full_url" => $dir.$fileName,
-		// 	"mini_url" => $dir.$fileName2,
-		// 	);
-		// echo json_encode($data);
-		echo $dir.$fileName.'|'.$dir.$fileName2;
-		// $ext='<a href="'.$dir.$fileName.'"><img src="'.$dir.$fileName2.'"/></a>';
-		// echo $ext."<br/>";
-		// echo '<input type="text" size="150" value="'.htmlspecialchars($ext).'"><br />';
+		echo "http://".$_SERVER["HTTP_HOST"]."/".$dir.$fileName."|http://".$_SERVER["HTTP_HOST"]."/".$dir.$fileName2;
 		}
 		//Костыль ресайза картинок до width:500px; конец
 		else {
 
-		// $data = array(
-		// 	"success" => "true",
-		// 	"full_url" => $dir.$fileName,
-		// 	);
-		// echo json_encode($data);
 		echo $dir.$fileName;			
 		}
     }
