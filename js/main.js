@@ -98,16 +98,18 @@ var galleryname = $('#gallery-name').val();
             upload_progress_handler : uploadProgress
         }
     );
+    
+    $('#im_settings').click(function(event) {
+        $('#image_settings').toggle();
+        if($('#im_settings').text()=="Изменить настройки") $('#showlink').text("Скрыть");
+        else $('#im_settings').text("Изменить настройки");
+        
+		return false;
+	});
 });
 
 function showlog() {
 	$('#status').toggle();
 	if($('#showlink').text()=="показать лог") $('#showlink').text("скрыть лог");
 	else $('#showlink').text("показать лог");
-}
-
-function showsettings() {
-    $('#image_settings').toggle();
-    if($('#im_settings').text()=="Изменить настройки") $('#showlink').text("Скрыть");
-    else $('#im_settings').text("Изменить настройки");
 }
